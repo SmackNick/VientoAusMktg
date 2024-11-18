@@ -444,7 +444,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/assets/images/landscape.jpg') center/100% no-repeat; /* Zoomed-out effect */
+    background: url('assets/images/landscape.jpg') center/100% no-repeat; /* Zoomed-out effect */
     z-index: -1;
     filter: grayscale(100%); /* Apply greyscale here */
 }
