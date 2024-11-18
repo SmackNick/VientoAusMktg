@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ANIMATION_DURATION = 1000; // Duration of the rotation animation in milliseconds
     const ROTATION_INTERVAL = 6000; // Time interval between rotations in milliseconds
     const DEFAULT_ROTATION = 45; // Default rotation angle in degrees
-    const DIAMOND_SIZE = 800; // Size of the diamond in pixels
+    const LARGE_DIAMOND_SIZE = 800; // Diamond size for larger screens
+    const SMALL_DIAMOND_SIZE = 450; // Diamond size for smaller screens
     const BORDER_WIDTH = 3; // Border width of the diamond in pixels
     const OPACITY = 0.1; // Opacity of the diamond
 
@@ -13,13 +14,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create the diamond dynamically
     const diamond = document.createElement('div');
     diamond.style.position = 'absolute';
-    diamond.style.width = `${DIAMOND_SIZE}px`;
-    diamond.style.height = `${DIAMOND_SIZE}px`;
     diamond.style.border = `${BORDER_WIDTH}px solid var(--accent-color)`;
     diamond.style.transform = `rotate(${DEFAULT_ROTATION}deg)`; // Default rotation
     diamond.style.opacity = OPACITY;
     diamond.style.transition = `transform ${ANIMATION_DURATION}ms ease-in-out`; // Smooth rotation
     hero.appendChild(diamond);
+
+    // Function to update diamond size based on screen width
+    function updateDiamondSize() {
+        const screenWidth = window.innerWidth;
+        const diamondSize = screenWidth < 768 ? SMALL_DIAMOND_SIZE : LARGE_DIAMOND_SIZE; // Smaller size for mobile
+        diamond.style.width = `${diamondSize}px`;
+        diamond.style.height = `${diamondSize}px`;
+    }
+
+    // Initial diamond size setup
+    updateDiamondSize();
+
+    // Update diamond size on window resize
+    window.addEventListener('resize', updateDiamondSize);
 
     // Function to apply random rotation and reset to default
     function rotateDiamond() {
@@ -40,8 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
         Animation Duration: ${ANIMATION_DURATION}ms
         Rotation Interval: ${ROTATION_INTERVAL}ms
         Default Rotation: ${DEFAULT_ROTATION}deg
-        Diamond Size: ${DIAMOND_SIZE}px`);
+        Large Diamond Size: ${LARGE_DIAMOND_SIZE}px
+        Small Diamond Size: ${SMALL_DIAMOND_SIZE}px`);
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
