@@ -49,17 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.querySelector('.mobile-menu');
     const menuOverlay = document.querySelector('.menu-overlay');
     const menuLinks = document.querySelectorAll('.menu-content a'); // Select all menu links
+    const mobileLogo = document.querySelector('.logo-mobile'); // Select the mobile logo
 
     // Toggle Mobile Menu
     function toggleMenu() {
         mobileMenu.classList.toggle('show');
         hamburger.classList.toggle('open');
+        mobileLogo.classList.toggle('hide'); // Toggle the visibility of the mobile logo
     }
 
     // Close Menu on Overlay Click
     function closeMenu() {
         mobileMenu.classList.remove('show');
         hamburger.classList.remove('open');
+        mobileLogo.classList.remove('hide'); // Ensure the logo reappears
     }
 
     // Close Menu when clicking a menu link
