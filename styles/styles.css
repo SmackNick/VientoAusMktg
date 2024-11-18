@@ -360,6 +360,16 @@ h1 {
     box-shadow: 0 4px 20px rgba(126, 215, 193, 0.3); /* Glow effect */
 }
 
+@media (max-width: 768px) {
+    .hero::after {
+        width: 400px; /* Smaller width for mobile */
+        height: 400px; /* Smaller height for mobile */
+        transform: rotate(45deg); /* Maintain diamond rotation */
+        border-width: 2px; /* Adjust border for smaller screens */
+    }
+}
+
+
 
 
 /* -------------------------------- */
