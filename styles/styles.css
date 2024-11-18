@@ -356,6 +356,12 @@ h1 {
     box-shadow: 0 4px 20px rgba(126, 215, 193, 0.3); /* Glow effect */
 }
 
+@media (max-width: 768px) {
+    .hero div {
+        width: 400px; /* Smaller size for mobile */
+        height: 400px;
+    }
+}
 
 /* -------------------------------- */
 /*            SERVICES SECTION      */
